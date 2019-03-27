@@ -18,7 +18,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
 import Home from "../pages/Home";
 import About from "../pages/About";
-import {Link, Route} from "react-router-dom";
+import {Link, NavLink, Redirect, Route, Switch} from "react-router-dom";
 import Admin from "../pages/Admin";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -186,11 +186,14 @@ class Layout extends React.Component {
                 </nav>
                 <main className={classes.content}>
                     <div className={classes.toolbar}/>
-                    <Route exact path="/" component={Home}/>
-                    <Route path="/about" component={About}/>
-                    <Route path="/admin" component={Admin}/>
-                    <Route path="/profil" component={Profil}/>
-                    <Route path="*" component={NotFound} />
+                    <Switch>
+                        <Redirect path="/" exact to="/home" />
+                        <Route path="/home" component={Home}/>
+                        <Route path="/about" component={About}/>
+                        <Route path="/admin" component={Admin}/>
+                        <Route path="/profil" component={Profil}/>
+                        <Route path="*" component={NotFound} />
+                    </Switch>
                 </main>
             </div>
         );
