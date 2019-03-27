@@ -10,13 +10,14 @@ import {
     Switch,
 } from 'react-router-dom';
 import Layout from "./components/Layout";
+import Login from "./pages/Login";
 
 
 const App = () => (
     <Router>
         <Switch>
-            {/*<Redirect path="/" exact to="/connexion" />*/}
-            {/*<Route path="/connexion" component={Login} />*/}
+            <Redirect path="/" exact to="/connexion" />
+            <Route path="/connexion" component={Login} />
             {/* <AuthenticatedRoute roles={['ROLE_USER', 'ROLE_ADMIN']} path="/" component={Layout} /> */}
             <Route path="/" component={Layout} />
         </Switch>
