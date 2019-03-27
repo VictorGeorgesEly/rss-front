@@ -1,8 +1,27 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
 import * as serviceWorker from './serviceWorker';
+
+import {
+    BrowserRouter as Router,
+    Redirect,
+    Route,
+    Switch,
+} from 'react-router-dom';
+import Layout from "./components/Layout";
+
+
+const App = () => (
+    <Router>
+        <Switch>
+            {/*<Redirect path="/" exact to="/connexion" />*/}
+            {/*<Route path="/connexion" component={Login} />*/}
+            {/* <AuthenticatedRoute roles={['ROLE_USER', 'ROLE_ADMIN']} path="/" component={Layout} /> */}
+            <Route path="/" component={Layout} />
+        </Switch>
+    </Router>
+);
 
 ReactDOM.render(<App />, document.getElementById('root'));
 
