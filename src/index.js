@@ -11,6 +11,7 @@ import {
 } from 'react-router-dom';
 import Layout from "./components/Layout";
 import Login from "./pages/Login";
+import NotFound from "./pages/NotFound";
 
 
 const App = () => (
@@ -20,6 +21,8 @@ const App = () => (
             <Route path="/connexion" component={Login} />
             {/* <AuthenticatedRoute roles={['ROLE_USER', 'ROLE_ADMIN']} path="/" component={Layout} /> */}
             <Route path="/" component={Layout} />
+            {/* TODO Ajout d'un composant modifiable selon la position du systeme !*/}
+            <Route path="*" component={NotFound} />
         </Switch>
     </Router>
 );

@@ -18,7 +18,7 @@ import IconButton from "@material-ui/core/IconButton";
 import MenuIcon from '@material-ui/icons/Menu';
 import Home from "../pages/Home";
 import About from "../pages/About";
-import {Link, NavLink, Redirect, Route, Switch} from "react-router-dom";
+import {Link, Redirect, Route, Switch} from "react-router-dom";
 import Admin from "../pages/Admin";
 import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -192,6 +192,7 @@ class Layout extends React.Component {
                         <Route path="/about" component={About}/>
                         <Route path="/admin" component={Admin}/>
                         <Route path="/profil" component={Profil}/>
+                        {/* TODO Ajout d'un composant modifiable selon la position du systeme !*/}
                         <Route path="*" component={NotFound} />
                     </Switch>
                 </main>
