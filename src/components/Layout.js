@@ -24,6 +24,7 @@ import Menu from "@material-ui/core/Menu";
 import MenuItem from "@material-ui/core/MenuItem";
 import Profil from "../pages/Profil";
 import NotFound from "../pages/NotFound";
+import Rss from "../pages/Rss";
 
 const drawerWidth = 240;
 
@@ -192,6 +193,7 @@ class Layout extends React.Component {
                         <Route path="/about" component={About}/>
                         <Route path="/admin" component={Admin}/>
                         <Route path="/profil" component={Profil}/>
+                        <Route path="/rss" component={Rss}/>
                         {/* TODO Ajout d'un composant modifiable selon la position du systeme !*/}
                         <Route path="*" component={NotFound} />
                     </Switch>
