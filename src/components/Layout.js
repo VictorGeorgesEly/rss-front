@@ -82,7 +82,7 @@ class Layout extends React.Component {
     };
 
 
-    render() {
+    render(): React.ReactNode {
         const {classes, theme} = this.props;
 
         const {anchorEl} = this.state;

@@ -47,7 +47,7 @@ const styles = theme => ({
 });
 
 class Layout extends React.Component {
-    render() {
+    render(): React.ReactNode {
         const { classes } = this.props;
 
         return (

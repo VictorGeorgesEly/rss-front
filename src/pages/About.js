@@ -1,22 +1,53 @@
 import React from 'react';
-import Typography from "@material-ui/core/Typography";
+import axios from 'axios';
+import * as userData from "../data/user";
 
-export default function About() {
+class About extends React.Component {
+    state = {
+        users: [],
+    };
+
+    componentDidMount() {
+        this.getUsers();
+    }
+
+    getUsers() {
+        userData.getUsers().then(res => {
+            const users = res.data;
+            this.setState({users});
+        });
+    }
+
+    // componentDidMount() {
+    //     axios.get(`http://localhost:8080/user`)
+    //         .then(res => {
+    //             const users = res.data;
+    //             this.setState({users});
+    //         });
+    // }
+
+    render(): React.ReactNode {
         return (
             <div>
-                    <h1>About</h1>
-                    <Typography paragraph>
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
-                            incididunt ut labore et dolore magna aliqua. Rhoncus dolor purus non enim praesent
-                            elementum facilisis leo vel. Risus at ultrices mi tempus imperdiet. Semper risus in
-                            hendrerit gravida rutrum quisque non tellus. Convallis convallis tellus id interdum
-                            velit laoreet id donec ultrices. Odio morbi quis commodo odio aenean sed adipiscing.
-                            Amet nisl suscipit adipiscing bibendum est ultricies integer quis. Cursus euismod quis
-                            viverra nibh cras. Metus vulputate eu scelerisque felis imperdiet proin fermentum leo.
-                            Mauris commodo quis imperdiet massa tincidunt. Cras tincidunt lobortis feugiat vivamus
-                            at augue. At augue eget arcu dictum varius duis at consectetur lorem. Velit sed
-                            ullamcorper morbi tincidunt. Lorem donec massa sapien faucibus et molestie ac.
-                    </Typography>
+                <h1>About</h1>
+                {this.state.users.map(e => {
+                    return (
+                        <ul key={e.id}>
+                            <li>
+                                {e.username}
+                            </li>
+                            <li>
+                                {e.firstName}
+                            </li>
+                            <li>
+                                {e.lastName}
+                            </li>
+                        </ul>
+                    );
+                })}
             </div>
         );
+    }
 }
+
+export default About;
